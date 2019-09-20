@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row mt-4">
+        <div class="col">
+            <h2>Add Item</h2>
+            <form action="{% url 'todo_app:home' %}" method="POST" class="form-inline">
+                {% csrf_token %}
+                <input type="text" class="form-control mb-2 mr-sm-2" placeholder="type here..." name="todo" required>
+                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            <ul class="list-group">
+               {% for todo_item in todo_list %}
+                    <li class="list-group-item">
+                        {{todo_item.item}}
+                        <a href="{% url 'todo_app:delete' todo_item.id %}" class=" float-right btn-sm btn btn-danger">Delete</a>
+                    </li>
+               {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
