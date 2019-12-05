@@ -1,7 +1,7 @@
 bcrypt==3.1.7
 certifi==2019.6.16
 Click==7.0
-Django==2.2.5
+Django==2.2.8
 dnspython==1.15.0
 Faker==0.8.13
 Flask==1.0
